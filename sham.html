@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شام للإتصالات | الروابط الرسمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.09);
+            --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(234, 88, 12, 0.12) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
+            overflow-x: hidden;
+        }
+
+        /* شاشة الترحيب عند الدخول */
+        .splash-screen {
+            position: fixed;
+            inset: 0;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .splash-screen.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .splash-logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f59e0b;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.45);
+            margin-bottom: 18px;
+            animation: pulseZoom 1.2s ease-out;
+        }
+
+        .splash-title {
+            font-size: 30px;
+            font-weight: 900;
+            background: linear-gradient(to right, #ffffff, #fbbf24, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .splash-welcome {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 600;
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes pulseZoom {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            0% { transform: translateY(15px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            width: 100%;
+            max-width: 440px;
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 35px 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        .brand-logo-wrapper {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            padding: 3px;
+            background: var(--gold-gradient);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand-logo-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #0b0f19;
+        }
+
+        .brand-title {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(to right, #ffffff, #fbbf24, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .brand-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .wa-direct .icon-box { background: rgba(37, 211, 102, 0.15); color: #25d366; }
+        .wa-direct:hover { border-color: #25d366; }
+
+        .insta .icon-box { background: rgba(225, 48, 108, 0.15); color: #e1306c; }
+        .insta:hover { border-color: #e1306c; }
+
+        .fb .icon-box { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
+        .fb:hover { border-color: #1877f2; }
+
+        .arrow-icon {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .link-btn:hover .arrow-icon {
+            transform: translateX(-4px);
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 28px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شاشة الترحيب -->
+    <div class="splash-screen" id="splashScreen">
+        <img src="sham.jpg" alt="شعار شام للإتصالات" class="splash-logo">
+        <div class="splash-title">شام للإتصالات</div>
+        <div class="splash-welcome">أهلاً وسهلاً بكم في منصتنا الرسمية</div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <div class="brand-logo-wrapper">
+            <img src="sham.jpg" alt="شعار شام للإتصالات" class="brand-logo-img">
+        </div>
+        <h1 class="brand-title">شام للإتصالات</h1>
+        <p class="brand-subtitle">عالم الاتصالات والخدمات الرقمية — المنصة الرسمية</p>
+
+        <div class="links-list">
+            <!-- 1. محادثة واتساب مباشرة مع رسالة جاهزة -->
+            <a href="https://wa.me/963940424582?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D9%84%D9%87%D8%8C%20%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A8%D9%83%D9%85%20%D9%81%D9%8A%20%D8%B4%D8%A7%D9%85%20%D9%84%D9%84%D8%A5%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA.%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%88%D8%B4%D9%83%D8%B1%D8%A7%D9%8B%20%D9%84%D9%83%D9%85." target="_blank" class="link-btn wa-direct">
+                <div class="btn-content">
+                    <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                    <span>تواصل مباشر عبر واتساب</span>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- 2. إنستغرام -->
+            <a href="https://www.instagram.com/sham_communications_center?cnvx=MTEyY3hrNjM0YWJmZQ==" target="_blank" class="link-btn insta">
+                <div class="btn-content">
+                    <div class="icon-box"><i class="fab fa-instagram"></i></div>
+                    <span>حساب الإنستغرام</span>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </a>
+
+            <!-- 3. فيسبوك -->
+            <a href="https://www.facebook.com/profile.php?id=61582698533065&mibextid=ZbWKwL" target="_blank" class="link-btn fb">
+                <div class="btn-content">
+                    <div class="icon-box"><i class="fab fa-facebook-f"></i></div>
+                    <span>صفحة الفيسبوك</span>
+                </div>
+                <i class="fas fa-chevron-left arrow-icon"></i>
+            </a>
+        </div>
+
+        <div class="footer">
+            جميع الحقوق محفوظة © شام للإتصالات
+        </div>
+    </div>
+
+    <script>
+        // إخفاء شاشة الترحيب بعد ثانيتين من تحميل الصفحة
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splashScreen');
+                if (splash) {
+                    splash.classList.add('hide');
+                }
+            }, 2000);
+        });
+    </script>
+
+</body>
+</html>
